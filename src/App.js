@@ -7,7 +7,6 @@ import Footer from "./components/Footer";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
-import Login from "./components/Login";
 import Cart from "./components/Cart";
 import Body from "./components/Body";
 import { Provider } from "react-redux";
@@ -71,10 +70,6 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurants/:resId",
         element: <RestaurantMenu />,
-      },
-      {
-        path: "/login",
-        element: <Login />,
       },
       {
         path: "/cart",

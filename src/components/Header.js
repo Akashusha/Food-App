@@ -7,7 +7,7 @@ import useOnlineStatus from "../hooks/useOnlineStatus";
 import { useSelector } from "react-redux";
 
 const Header = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState("login");
   const navigate = useNavigate();
 
   const isOnline = useOnlineStatus();
@@ -54,15 +54,16 @@ const Header = () => {
             </Link>
           </li>
 
-          {isLoggedIn ? (
-            <button className="login" onClick={() => setIsLoggedIn(false)}>
-              Logout
-            </button>
-          ) : (
-            <button className="login" onClick={() => navigate("/login")}>
-              Login
-            </button>
-          )}
+          <button
+            className="login"
+            onClick={() => {
+              isLoggedIn === "Login"
+                ? setIsLoggedIn("Logout")
+                : setIsLoggedIn("Login");
+            }}
+          >
+            {isLoggedIn}
+          </button>
         </ul>
       </div>
     </div>
